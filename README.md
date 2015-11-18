@@ -1,6 +1,6 @@
 # [TP 08 : MapReduce](https://drive.google.com/file/d/0B-vA3-U63KZXcDlpVG5nOFFYS28/view "lien du TP")
 
-> ²Avant tout le code dispo ici peut être utiliser SAUF à des fins commercials, c'est sympa si vous m'en faites part ;)
+> Avant tout le code dispo ici peut être utiliser SAUF à des fins commercials, c'est sympa si vous m'en faites part ;)
 
 
 Ce TP permet de mettre en place un traitement de données basé sur le principe de « map » et « reduce ».
