@@ -10,31 +10,61 @@
 *     '-----'`
  ************ */
 
-int mapper(char *mot, char *data){
-  int i = 0;
-  char *toast;
+void mapper(char *data){
+    char mot[255][255];
+    char tmp[255];
+    int i = 0;
+    int j = 0;
+    int k = 0; 
+    int l = 0;
+    int count; 
 
-  toast = strstr(data, mot);
+	data[strlen(data) - 1] = 0; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
 
-  while (toast != NULL){
-    toast = strstr(toast + 1, mot);
-    i++;
-  }
-
-  return i;
-}
-
-void reducer(char * data){
-    char *toast = strtok(data, " ");
-
-    while (toast != NULL){
-      printf ("%s : %d\n", toast, mapper(toast, data));
-      toast = strtok(NULL, " ");
+    // Le foutoir complet
+    while (data[i] != 0) {
+        if (data[i] == 0){
+            mot[j][k] = 0;
+            k = 0;
+            j++;
+        }else {
+            mot[j][k++] = data[i];
+        }
+        i++;
+    }
+    
+    mot[j][k] = 0;
+    l = j;
+    // La partie de trie
+    for (i = 0; i < l; i++) {
+        strcpy(tmp, mot[i]); // http://www.tutorialspoint.com/c_standard_library/c_function_strcpy.htm
+        for (j = i + 1; j <= l; j++) {
+            if (strcmp(mot[i], mot[j]) > 0) { // http://www.tutorialspoint.com/c_standard_library/c_function_strcmp.htm
+                strcpy(tmp, mot[j]);
+                strcpy(mot[j], mot[i]);
+                strcpy(mot[i], tmp);
+            }
+        }
+    }
+    printf("Frequence apparition des mots : \n");
+    i = 0;
+    // On trouve la fréquence d'apparition et on affiche le resultat
+    while (i <= l) {
+        count = 1;
+        if (i != l) {
+            for (j = i + 1; j <= l; j++) {
+                if (strcmp(mot[i], mot[j]) == 0) {
+                    count++;
+                }
+            }
+        }
+        printf("\n %s \t %d", mot[i], count);
+        // Une "incrémentation" de i avec "count" à la place de plus 1, pour passer au mot suivant
+        i = i + count;
     }
 }
 
-int main(int argc, char** argv) {
-	//char text[] = " jean toast roger toast roger jean charles jean roger toast toast charles toast ";
+int main(int argc, char** argv) {    
 	FILE* f = fopen("toast.txt", "r"); // toast.txt = petit fichier à la con, liste.txt -> fichier badass avec 10 000 entrées random sur 3 lettres.
 	if(f == 0) {
 		fclose(f);
@@ -64,10 +94,10 @@ int main(int argc, char** argv) {
 		fclose(f);
 	}
 
-	//printf("Le fichier contient %zu octets \n", size);
-	//printf("Son contenu est: %s \n", data);
+	mapper(data); // L'appel de la fonction mapper avec en paramétre data
 
-	reducer(data);
+	printf("\nDebug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être qu'utiliser en compilant via gcc
+	//printf("Son contenu est: %s \n", data);
 
 	fclose(f); // On a fini avec le fichier, donc on le ferme, pask faut toujours fermer les fichiers, parce que tg c kom sa.
 	free(data); // On libère la mémoire qu'on avait demandé à l'OS vu qu'on en a plus besoin.
