@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define nbreEntree 10042
+#define nbreEntree 10000
 
 /* ************
 *      _   __
@@ -11,14 +11,16 @@
 *     '-----'`
  ************ */
 
+ COUCOU LES KOP1
+
 void mapper(char data[]){
     char mot[nbreEntree][nbreEntree]= {0, 0};
     char tmp[nbreEntree] = {0};
     int i = 0;
     int j = 0;
-    int k = 0; 
+    int k = 0;
     int l = 0;
-    int count; 
+    int count;
 
     data[strlen(data) - 1] = 0; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
 
@@ -33,7 +35,7 @@ void mapper(char data[]){
         }
         i++;
     }
-    
+
     mot[j][k] = 0;
     l = j;
     // La partie de trie
@@ -65,7 +67,7 @@ void mapper(char data[]){
     }
 }
 
-int main() {    
+int main() {
     FILE* f = fopen("toast.txt", "r"); // toast.txt = petit fichier à la con, liste.txt -> fichier badass avec 10 000 entrées random sur 3 lettres.
     if(f == 0) {
         fclose(f);
