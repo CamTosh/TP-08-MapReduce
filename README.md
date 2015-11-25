@@ -40,17 +40,16 @@ Un programme Hadoop se divise généralement en trois parties :
 Les données sont toujours lues ou écrites selon le format `<key, value>` (`<clef, valeur>`). 
 
 ## liens utiles
+[Journal du net](http://www.journaldunet.com/developpeur/outils/mapreduce.shtml)
 
-http://www.journaldunet.com/developpeur/outils/mapreduce.shtml
+[Blog de soat](http://blog.soat.fr/2015/05/comprendre-mapreduce/ "avec des poneys !")
 
-http://blog.soat.fr/2015/05/comprendre-mapreduce/
+[Piloter.org "La business intelligence"](http://www.piloter.org/business-intelligence/map-reduce.htm)
 
-http://www.piloter.org/business-intelligence/map-reduce.htm
+[Le tri topologique](http://stephane.bunel.org/Algo/tri-topologique)
 
-http://stephane.bunel.org/Algo/tri-topologique
+[Le tri topologique façon wikipedia](https://fr.wikipedia.org/wiki/Tri_topologique)
 
-https://fr.wikipedia.org/wiki/Graphe_orient%C3%A9_acyclique
+[Le graphe acyclique](https://fr.wikipedia.org/wiki/Graphe_orient%C3%A9_acyclique)
 
-https://fr.wikipedia.org/wiki/Tri_topologique
-
-http://research.google.com/archive/mapreduce-osdi04-slides/
+[Le Map Reduce par Google](http://research.google.com/archive/mapreduce-osdi04-slides/)
