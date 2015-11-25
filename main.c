@@ -16,9 +16,9 @@ void mapper(char data[]){
     char tmp[nbreEntree] = {0};
     int i = 0;
     int j = 0;
-    int k = 0; 
+    int k = 0;
     int l = 0;
-    int count; 
+    int count;
 
     data[strlen(data) - 1] = 0; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
 
@@ -33,7 +33,7 @@ void mapper(char data[]){
         }
         i++;
     }
-    
+
     mot[j][k] = 0;
     l = j;
     // La partie de trie
@@ -65,7 +65,7 @@ void mapper(char data[]){
     }
 }
 
-int main() {    
+int main() {
     FILE* f = fopen("toast.txt", "r"); // toast.txt = petit fichier à la con, liste.txt -> fichier badass avec 10 000 entrées random sur 3 lettres.
     if(f == 0) {
         fclose(f);
@@ -99,7 +99,7 @@ int main() {
 
     printf("\nDebug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être qu'utiliser en compilant via gcc
     //printf("Son contenu est: %s \n", data);
-
+    printf("La modif à la con");
     fclose(f); // On a fini avec le fichier, donc on le ferme, pask faut toujours fermer les fichiers, parce que tg c kom sa.
     free(data); // On libère la mémoire qu'on avait demandé à l'OS vu qu'on en a plus besoin.
 
