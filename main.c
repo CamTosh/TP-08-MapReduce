@@ -11,7 +11,6 @@
 *     '-----'`
  ************ */
 
- COUCOU LES KOP1
 
 void mapper(char data[]){
     char mot[nbreEntree][nbreEntree]= {0, 0};
@@ -38,7 +37,7 @@ void mapper(char data[]){
 
     mot[j][k] = 0;
     l = j;
-    // La partie de trie
+    // La partie de tri
     for (i = 0; i < l; i++) {
         strcpy(tmp, mot[i]); // http://www.tutorialspoint.com/c_standard_library/c_function_strcpy.htm
         for (j = i + 1; j <= l; j++) {
@@ -51,7 +50,7 @@ void mapper(char data[]){
     }
     printf("Frequence apparition des mots : \n");
     i = 0;
-    // On trouve la fréquence d'apparition et on affiche le resultat
+    // On trouve la fréquence d'apparition et on affiche le résultat
     while (i <= l) {
         count = 1;
         if (i != l) {
@@ -73,7 +72,7 @@ int main() {
         fclose(f);
     }
 
-    fseek(f, 0, SEEK_END); // Tu place le "curseur" du fichier a la fin (ça sert a savoir quelle taille fait le fichier)
+    fseek(f, 0, SEEK_END); // Tu place le "curseur" du fichier à la fin (ça sert a savoir quelle taille fait le fichier)
     size_t size = ftell(f); // Récupérer la position courante du curseur, donc la taille du fichier vu qu'on a mis le curseur à la fin (et stocker le resultat dans size)
     fseek(f, 0, SEEK_SET); // Remettre le curseur au début du fichier pour commencer à la lire
 
@@ -102,7 +101,7 @@ int main() {
     printf("\nDebug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être qu'utiliser en compilant via gcc
     //printf("Son contenu est: %s \n", data);
 
-    fclose(f); // On a fini avec le fichier, donc on le ferme, pask faut toujours fermer les fichiers, parce que tg c kom sa.
+    fclose(f); // On a fini avec le fichier, donc on le ferme, parce qu'il faut toujours fermer les fichiers, pske tg c kom sa.
     free(data); // On libère la mémoire qu'on avait demandé à l'OS vu qu'on en a plus besoin.
 
     return 0;
