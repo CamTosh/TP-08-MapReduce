@@ -24,19 +24,22 @@ void mapper(char data[]){
     data[strlen(data) - 1] = 0; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
 
     // Le foutoir complet
-    while (data[i] != 0) {
-        if (data[i] == 0){
-            mot[j][k] = 0;
+    while (data[i] != '\0'){
+
+        if (data[i] == ' '){
+            mot[j][k] = '\0';
             k = 0;
             j++;
-        }else {
+        } 
+        else {
             mot[j][k++] = data[i];
         }
-        i++;
+            i++;
     }
-
+    
     mot[j][k] = 0;
     l = j;
+
     // La partie de tri
     for (i = 0; i < l; i++) {
         strcpy(tmp, mot[i]); // http://www.tutorialspoint.com/c_standard_library/c_function_strcpy.htm
