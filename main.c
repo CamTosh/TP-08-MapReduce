@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /* ************
 *      _   __
@@ -23,9 +24,8 @@ void mapper(char data[]){
     data[strlen(data) - 1] = 0; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
 
     // Le foutoir complet
-    while (data[i] != '\0'){
-
-        if (data[i] == ' '){
+    while (i < strlen(data) && data[i] != '\0'){
+        if (!isalpha(data[i])){ // Si le caractère n'est pas une lettre, on démarre un nouveau mot
             mot[j][k] = '\0';
             k = 0;
             j++;
