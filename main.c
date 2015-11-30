@@ -78,7 +78,8 @@ int main() {
     size_t size = ftell(f); // Récupérer la position courante du curseur, donc la taille du fichier vu qu'on a mis le curseur à la fin (et stocker le resultat dans size)
     fseek(f, 0, SEEK_SET); // Remettre le curseur au début du fichier pour commencer à la lire
 
-    char* data = malloc(size + 1);
+    //char* data = malloc(size + 1);
+    char* data = (char*)malloc(size + 1);
     /*
     Demander à l'OS 'size + 1' octets de mémoire pour stocker toutes les données du fichier.
     data est un pointeur vers de l'espace RAM disposible qu'on a demandé à l'OS, c'est comme un tableau de char de taille 'size + 1'
