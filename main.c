@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define nbreEntree 10000
 
 /* ************
 *      _   __
@@ -13,8 +12,8 @@
 
 
 void mapper(char data[]){
-    char mot[nbreEntree][nbreEntree]= {0, 0};
-    char tmp[nbreEntree] = {0};
+    char mot[255][255]= {0, 0};
+    char tmp[255] = {0};
     int i = 0;
     int j = 0;
     int k = 0;
