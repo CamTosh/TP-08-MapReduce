@@ -92,7 +92,7 @@ int main() {
 
     //char* data = malloc(size + 1);
     //char data[255];
-    char* data = (char*)malloc(size + 10000);
+    char* data = (char*)malloc(size + 1);
 
     /*
     Demander à l'OS 'size + 1' octets de mémoire pour stocker toutes les données du fichier.
