@@ -71,9 +71,9 @@ void mapper(char data[]){
 
 
 bool value(char recherche, char data[], int size){
-    int m;
-    for (m = 0; m < size; m++) {
-        if (data[m] == recherche)
+    int i;
+    for (i = 0; i < size; i++) {
+        if (data[i] == recherche)
             printf("Le mot apparait dans le fichier\n");
             return true;
     }
