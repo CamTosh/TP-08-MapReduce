@@ -14,28 +14,33 @@
 
 void mapper(char data[]){
     char mot[1000][1000]= {0, 0};
-    char tmp[1000] = {0};
+    char tmp[500] = {0};
     int i = 0;
     int j = 0;
     int k = 0;
     int l = 0;
+    int h = 0;
+    int o = 50;
     int count;
 
     data[strlen(data) - 1] = '\0'; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
 
     // Le foutoir complet
-    while (i < strlen(data) && data[i] != '\0'){
-        if (!isalpha(data[i])){ // Si le caractère n'est pas une lettre, on démarre un nouveau mot
-            mot[j][k] = '\0';
-            k = 0;
-            j++;
-        }
-        else {
-            mot[j][k++] = data[i];
-        }
+    while(h <= 200){
+        while (i < strlen(data) && i <= o && data[i] != '\0'){
+            if (!isalpha(data[i])){ // Si le caractère n'est pas une lettre, on démarre un nouveau mot
+                mot[j][k] = '\0';
+                k = 0;
+                j++;
+            }
+            else {
+                mot[j][k++] = data[i];
+            }
             i++;
+            o = o + 50;
+        } 
+        h = h *2;
     }
-
     mot[j][k] = '\0';
     l = j;
 
@@ -130,7 +135,7 @@ int main() {
     value(recherche, data, size); // L'appel de la fonction boolean "value" avec en paramétre recherche, data et size
     */
 
-    //printf("\n \t %d %d", size, red);   
+    printf("\n size : %d  red :%d", size, red);   
     //printf("\n Debug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être utiliser qu'en compilant via gcc
 
     fclose(f); // On a fini avec le fichier, donc on le ferme, parce qu'il faut toujours fermer les fichiers, pske tg c kom sa.
