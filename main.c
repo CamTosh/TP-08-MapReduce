@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 
 /* ************
 *      _   __
@@ -69,16 +68,23 @@ void mapper(char data[]){
     }
 }
 
-
-bool value(char recherche, char data[], int size){
+/* à finir, fonction recherche
+void value(char recherche, char data[], size_t size){
     int i;
-    for (i = 0; i < size; i++) {
-        if (data[i] == recherche)
-            printf("Le mot apparait dans le fichier\n");
-            return true;
-    }
-    return false;
+    char search;
+
+    for(i = 0; i <= size; i++){
+
+        search = strstr(data[i], recherche);
+        if (search != NULL){
+            printf("Le mot apparait dans le fichier \n");
+        }
+        if(search == NULL) {
+            printf("Aucun mot \n");
+        }
+    }        
 }
+*/
 
 int main() {
     FILE* f = fopen("fichier.txt", "r"); // toast.txt = petit fichier à la con, liste.txt -> fichier badass avec 10 000 entrées random sur 3 lettres.
@@ -113,16 +119,19 @@ int main() {
         fclose(f);
     }
 
+    mapper(data); // L'appel de la fonction mapper avec en paramétre data
+
+    /*
     char recherche;
 
     printf("\n Recherche : ");
     scanf("%c", &recherche);
 
     value(recherche, data, size); // L'appel de la fonction boolean "value" avec en paramétre recherche, data et size
-    mapper(data); // L'appel de la fonction mapper avec en paramétre data
+    */
 
-    //printf("\nDebug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être utiliser qu'en compilant via gcc
-    //printf("\n Son contenu est: %s \n", data);
+    //printf("\n \t %d %d", size, red);   
+    //printf("\n Debug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être utiliser qu'en compilant via gcc
 
     fclose(f); // On a fini avec le fichier, donc on le ferme, parce qu'il faut toujours fermer les fichiers, pske tg c kom sa.
     free(data); // On libère la mémoire qu'on avait demandé à l'OS vu qu'on en a plus besoin.
