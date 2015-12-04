@@ -13,7 +13,7 @@
 
 
 void mapper(char data[]){
-    char mot[1000][1000]= {0, 0};
+    char mot[500][500]= {0, 0};
     char tmp[500] = {0};
     int i = 0;
     int j = 0;
@@ -97,7 +97,6 @@ int main() {
     fseek(f, 0, SEEK_SET); // Remettre le curseur au début du fichier pour commencer à la lire
 
     //char* data = malloc(size + 1);
-    //char data[255];
     char* data = (char*)malloc(size + 1);
 
     /*
