@@ -13,7 +13,7 @@
 
 
 void mapper(char data[]){
-    char mot[50000][30]= {0, 0}; // 50 000 mots avec 30 lettres au max
+    char mot[60000][30]= {0, 0}; // 60 000 mots avec 30 lettres au max
 
     char *tmp;
     tmp  = (char *) malloc(255); // OKLM Le ptit malloc des familles
@@ -26,7 +26,7 @@ void mapper(char data[]){
     int count;
 
     // Le foutoir complet
-        while (i < 50000){
+        while (i < 60000){
             if (!isalpha(data[i])){ // Si le caractère n'est pas une lettre, on démarre un nouveau mot
                 k = 0;
                 j++;
@@ -86,7 +86,7 @@ void value(char recherche, char data[], size_t size){
 */
 
 int main() {
-    FILE* f = fopen("aliceInWonderland.txt", "r"); // fichier.txt, trainspotting.txt, liste.txt, cupcake.txt
+    FILE* f = fopen("aliceInWonderland.txt", "r"); // fichier.txt, trainspotting.txt, cupcake.txt, 42.txt
 
     if(f == 0) { // Si le fichier est = à 0 (null) on le ferme, ça veut dire qu'il est vide, 0 octet, kedal, nadda
         fclose(f);
