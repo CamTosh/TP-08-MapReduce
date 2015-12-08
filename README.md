@@ -2,6 +2,12 @@
 
 > Avant tout le code dispo ici peut être utiliser SAUF à des fins commercials, c'est sympa si vous m'en faites part ;)
 
+## Crédits
+
+"Alice in wonderland" - Lewis Carroll
+"Trainspotting" - Danny Boyle
+
+## Énoncé
 
 Ce TP permet de mettre en place un traitement de données basé sur le principe de « map » et « reduce ».
 Ce travail va être mené en langage C. La mise en œuvre peut se faire dans tous les environnements.
@@ -22,12 +28,6 @@ Les différentes étapes de travail sont les suivantes :
 3. Une fois le fichier chargé, il faut commencer avec un traitement mono-thread. Dans ce cas, le premier tableau est lu, puis un tableau de sortie est constitué avec des opérations de « Shuffling » (battage). Plus simplement il faut mêler les éléments identiques afin de faire des cumuls sur la rubrique valeur de chaque clé.
 
 4. Dans le cas d’un mono-thread, il n’y a pas d’opération de « reduce » (réduction) ou de mappage dissociées. Le simple battage, qui permet de faire le cumul des valeurs, permet d’obtenir le résultat final. Le mapReduce se limite donc à une simple fonction baptisée mapReduce.
-
-## Todo en vrac
-
-Utiliser la POO.
-Utiliser les tests unitaires.
-Ajouter des Toast.
 
 ## Memo en vrac :
 
