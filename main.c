@@ -13,31 +13,30 @@
 
 
 void mapper(char data[]){
-    char mot[500][500]= {0, 0};
-    char tmp[500] = {0};
+    char mot[50000][30]= {0, 0}; // 42 000 mots avec 30 lettres au max
+
+    char *tmp;
+    tmp  = (char *) malloc(255); // OKLM Le ptit malloc des familles
+
+    // Ahhhhh les compteurs
     int i = 0;
     int j = 0;
     int k = 0;
     int l = 0;
     int count;
 
-    data[strlen(data) - 1] = '\0'; // http://www.tutorialspoint.com/c_standard_library/c_function_strlen.htm
-
     // Le foutoir complet
-        while (i < strlen(data) && data[i] != '\0'){
+        while (i < 50000){
             if (!isalpha(data[i])){ // Si le caractère n'est pas une lettre, on démarre un nouveau mot
-                mot[j][k] = '\0';
                 k = 0;
                 j++;
-            }
+                l=j;
+                }
             else {
                 mot[j][k++] = data[i];
             }
             i++;
-        } 
-
-    mot[j][k] = '\0';
-    l = j;
+        }
 
     // La partie de tri
     for (i = 0; i < l; i++) {
@@ -62,7 +61,7 @@ void mapper(char data[]){
                 }
             }
         }
-        printf("\n %s %d", mot[i], count);
+        printf("\n %d \t %s", count, mot[i]);
         // Une "incrémentation" de i avec "count" à la place de plus 1, pour passer au mot suivant
         i = i + count;
     }
@@ -82,13 +81,14 @@ void value(char recherche, char data[], size_t size){
         if(search == NULL) {
             printf("Aucun mot \n");
         }
-    }        
+    }
 }
 */
 
 int main() {
-    FILE* f = fopen("fichier.txt", "r"); // toast.txt = petit fichier à la con, liste.txt -> fichier badass avec 10 000 entrées random sur 3 lettres.
-    if(f == 0) {
+    FILE* f = fopen("aliceInWonderland.txt", "r"); // fichier.txt, trainspotting.txt, liste.txt, cupcake.txt
+
+    if(f == 0) { // Si le fichier est = à 0 (null) on le ferme, ça veut dire qu'il est vide, 0 octet, kedal, nadda
         fclose(f);
     }
 
@@ -96,8 +96,7 @@ int main() {
     size_t size = ftell(f); // Récupérer la position courante du curseur, donc la taille du fichier vu qu'on a mis le curseur à la fin (et stocker le resultat dans size)
     fseek(f, 0, SEEK_SET); // Remettre le curseur au début du fichier pour commencer à la lire
 
-    //char* data = malloc(size + 1);
-    char* data = (char*)malloc(size + 1);
+    char* data = (char*)malloc(size + 1); // Ptit malloc tran-tran
 
     /*
     Demander à l'OS 'size + 1' octets de mémoire pour stocker toutes les données du fichier.
@@ -121,6 +120,7 @@ int main() {
     mapper(data); // L'appel de la fonction mapper avec en paramétre data
 
     /*
+    // Pour la fonction "recherche", ça serai sympa de l'implementer !
     char recherche;
 
     printf("\n Recherche : ");
@@ -129,8 +129,7 @@ int main() {
     value(recherche, data, size); // L'appel de la fonction boolean "value" avec en paramétre recherche, data et size
     */
 
-    printf("\n size : %d  red :%d", size, red);   
-    //printf("\n Debug :\t Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être utiliser qu'en compilant via gcc
+    //printf("\n \n Debug : Le fichier contient %zu octets \n", size); // Il me semble que le "%zu" ne peut être utiliser qu'en compilant via gcc
 
     fclose(f); // On a fini avec le fichier, donc on le ferme, parce qu'il faut toujours fermer les fichiers, pske tg c kom sa.
     free(data); // On libère la mémoire qu'on avait demandé à l'OS vu qu'on en a plus besoin.
