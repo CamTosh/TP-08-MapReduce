@@ -13,7 +13,7 @@
 
 
 void mapper(char data[]){
-    char mot[50000][30]= {0, 0}; // 42 000 mots avec 30 lettres au max
+    char mot[50000][30]= {0, 0}; // 50 000 mots avec 30 lettres au max
 
     char *tmp;
     tmp  = (char *) malloc(255); // OKLM Le ptit malloc des familles
