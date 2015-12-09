@@ -2,6 +2,10 @@
 
 > Avant tout le code dispo ici peut être utiliser SAUF à des fins commercials, c'est sympa si vous m'en faites part ;)
 
+## Note
+
+Pour compiler sous code::blocks Windows il faut modifier quelques [valeurs](https://msdn.microsoft.com/fr-fr/library/cc737937%28v=ws.10%29.aspx)
+
 ## Crédits
 
 "Alice in wonderland" - Lewis Carroll
