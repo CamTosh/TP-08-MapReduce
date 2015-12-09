@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#define limit 60000
 
 /* ************
 *      _   __
@@ -13,7 +14,7 @@
 
 
 void mapper(char data[]){
-    char mot[60000][30]= {0, 0}; // 60 000 mots avec 30 lettres au max
+    char mot[limit][30]= {0, 0}; // 60 000 mots avec 30 lettres au max
 
     char *tmp;
     tmp  = (char *) malloc(255); // OKLM Le ptit malloc des familles
@@ -26,7 +27,7 @@ void mapper(char data[]){
     int count;
 
     // Le foutoir complet
-        while (i < 60000){
+        while (i < limit){
             if (!isalpha(data[i])){ // Si le caractère n'est pas une lettre, on démarre un nouveau mot
                 k = 0;
                 j++;
