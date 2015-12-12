@@ -32,7 +32,7 @@ void mapper(char data[]){
                 k = 0;
                 j++;
                 l=j;
-                }
+            }
             else {
                 mot[j][k++] = data[i];
             }
